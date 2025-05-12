@@ -1,22 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putendl_fd.c                                    :+:      :+:    :+:   */
+/*   ft_memset.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yopeng <yopeng@student.42.fr>              +#+  +:+       +#+        */
+/*   By: yopeng <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/11 22:29:26 by yopeng            #+#    #+#             */
-/*   Updated: 2025/05/12 14:57:56 by yopeng           ###   ########.fr       */
+/*   Created: 2025/04/28 15:18:16 by yopeng            #+#    #+#             */
+/*   Updated: 2025/04/28 16:37:49 by yopeng           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <unistd.h>
 
-void	ft_putendl_fd(char *s, int fd)
+void	*ft_memset(void *b, int c, size_t len)
 {
-	if (!s)
-		return ;
-	write(fd, s, ft_strlen(s));
-	write(fd, "\n", 1);
+	void	*ptr;
+
+	ptr = b;
+	while (len--)
+		*(unsigned char *)ptr++ = (unsigned char)c;
+	return (b);
 }
