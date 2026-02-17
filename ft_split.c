@@ -32,14 +32,6 @@ static size_t	count_word(char	const *s, char c)
 	}
 	return (count);
 }
-/*
-static char const	*skip_sep(char const *s, char c)
-{
-	while (*s && *s == c)
-		s++;
-	return (s);
-}*/
-//skip delimiter && find the first word && return pointer from the first word
 
 static char	*word_dup(char const *s, size_t len)
 {
