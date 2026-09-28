@@ -12,6 +12,10 @@
 
 #include "libft.h"
 
+#ifndef BUFFER_SIZE
+# define BUFFER_SIZE 42
+#endif
+
 char	*gnl_ft_strjoin(char *s1, char *s2);
 
 static char	*free_and_null(char **p1, char **p2)
