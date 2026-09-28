@@ -45,16 +45,40 @@
 
 
 
-
-
 ## 🚀 Technical Requirements
 * **Language**: C (Strictly following the Norminette).
 * **Compiler**: `cc` with `-Wall -Wextra -Werror` flags.
 * **Makefile**: Must contain `$(NAME)`, `all`, `clean`, `fclean`, `re`, and `bonus`.
-* **Archive**: Generates a `libft.a` static library using `ar rcs`.
+* **Archive**: A static library file that stores compiled object files, such as `libft.a`.
+* **`ar rcs`**: Creates and updates the archive:
+    * `r` replaces existing object files or adds new ones to the archive.
+    * `c` creates the archive if it does not exist.
+    * `s` writes an index of the archive symbols for the linker.
 
 
-### 💡 Tips for Libft & Bonus:
-1. **Memory Cleanup**: In the bonus part, always ensure your `ft_lstclear` correctly calls the 'del' function to avoid leaks within the list nodes.
-2. **Generic Pointers**: The `void *` in `t_list` allows the list to store *any* type of data—this is the base of generic programming in C.
-3. **The Makefile Bonus**: Remember that your `bonus` rule should not relink the library if it's already up to date!
+## 🔧 Compile and Run
+
+Build the library and compile the test program:
+
+```bash
+make
+cc -Wall -Wextra -Werror test.c libft.a -o test
+./test
+```
+
+Build the library with bonus functions:
+
+```bash
+make bonus
+cc -Wall -Wextra -Werror test.c libft.a -o test
+./test
+```
+
+Clean generated object files, library and executable file:
+
+```bash
+make fclean
+
+rm -f test
+```
+

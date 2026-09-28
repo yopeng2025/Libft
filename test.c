@@ -1,8 +1,21 @@
+#include <unistd.h>
 #include <stdio.h>
 #include <string.h>
 #include <ctype.h>
 #include <stdlib.h>
 #include "libft.h"
+
+char plus_one(unsigned int i, char c)
+{
+    (void)i;
+    return (c + 1);
+}
+
+void increment_char(unsigned int i, char *c)
+{
+    (void)i;
+    *c = *c + 1;
+}
 
 void test_part1(void)
 {
@@ -74,7 +87,8 @@ void test_part1(void)
 
     // calloc
     int *a = ft_calloc(4, sizeof(int));
-    for (int i = 0; i < 4; i++) printf("%d ", a[i]); printf("\n");
+    for (int i = 0; i < 4; i++) {printf("%d ", a[i]);}
+    printf("\n");
     free(a);
 
     // strdup
@@ -102,8 +116,8 @@ void test_part2(void)
 
     // ft_split
     char **split = ft_split("a b c", ' ');
-    for (int i = 0; split[i]; i++) printf("split[%d]: %s\n", i, split[i]);
-    for (int i = 0; split[i]; i++) free(split[i]);
+    for (int i = 0; split[i]; i++) {printf("split[%d]: %s\n", i, split[i]);}
+    for (int i = 0; split[i]; i++) {free(split[i]);}
     free(split);
 
     // ft_itoa
@@ -112,17 +126,13 @@ void test_part2(void)
     free(itoa);
 
     // ft_strmapi
-    char *mapi = ft_strmapi("abc", [](unsigned int i, char c) {
-        return c + 1;
-    });
+    char *mapi = ft_strmapi("abc", plus_one);
     printf("ft_strmapi: %s\n", mapi);  // bcd
     free(mapi);
 
     // ft_striteri
     char test[] = "abc";
-    ft_striteri(test, [](unsigned int i, char *c) {
-        *c = *c + 1;
-    });
+    ft_striteri(test, increment_char);
     printf("ft_striteri: %s\n", test);  // bcd
 
     // ft_putchar_fd
